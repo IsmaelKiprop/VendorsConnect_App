@@ -45,3 +45,45 @@
 .goodnesssec a{
     text-decoration: none;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the dropdown trigger (the clickable element) */
+.dropdown-trigger {
+    background-color: rgb(64, 122, 64);
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Style for the dropdown content (the list of items) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the dropdown items (links) */
+.dropdown-item {
+    color: #333;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Style for the dropdown items on hover */
+.dropdown-item:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown content when the dropdown trigger is hovered over */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
