@@ -1,0 +1,91 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block tittle %}Home{% endblock tittle %}
+
+{% block banner-slider %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/pics/daawat.jpg' %}"  class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/juice.jpg' %}"   class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/unga.jpg' %}"  class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/majani.jpg' %}"   class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/oil.jpg' %}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/pampers.jpg' %}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/pics/lotion.jpg' %}" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="banner image">
+        </div>
+    </div>
+</div>  
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+    <div class="row bg-success text-white text-center border-bottom shadow">
+        <h1>Products</h1>
+        <p class="fs-5">We offer a wide range of products in both liquid and by-product categories. Ensuring a broadline distribution in the food industry by connecting vendors to distributors seamlessly.</p>
+    </div>
+</div>
+{% endblock information %}
+
+
+{% block main-content %}
+<div class="container">
+        <h2 class="text-center">Dairy Products</h2>
+    <br/><br/>
+    <div class="row container">
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"data-wow-duration="1s" data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="#">
+                    <div class="goodnessseccount text-center">
+                        <img src="{% static 'app/images/product/sweet-lassi.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Yougart</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="1s" data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; 
+            animation-name: none;">
+            <div class="goodnesssec buttermilk buttermilk">
+                <a href="#">
+                <div class="goodnessseccount text-center">
+                    <img src="{% static 'app/images/product/cow-milk.png' %}" class="img-responsive center-block"  alt="">
+                    <p class="mlkpro">Milk</p>
+                </div>    
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="1s" data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay: 0.6s; 
+        animation-name: none;">
+            <div class="goodnesssec buttermilk curdbgpro">
+            <a href="#">
+                <div class="goodnessseccount text-center">
+                    <img src="{% static 'app/images/product/processedcheeseslice.png' %}" class="img-responsive center-block " alt="">
+                    <p class="mlkpro">Cheese</p>
+                </div>    
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/>
+{% endblock main-content %}
+    
+    
