@@ -42,50 +42,26 @@
 
 {% block main-content %}
 <div class="container">
-        <h2 class="text-center">Dairy Products</h2>
+    <h2 class="text-center">Dairy Products</h2>
     <br/><br/>
     <div class="row container">
-        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"data-wow-duration="1s" data-wow-delay="0.6s"
-        style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+        {% for product in dairy_products %}
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"
+            style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
             <div class="goodnesssec buttermilk smbg">
-                <a href="#">
+                <a href="{% url 'app:product-details' barcode=product.barcode %}">
                     <div class="goodnessseccount text-center">
-                        <img src="{% static 'app/images/product/sweet-lassi.png' %}" class="img-responsive center-block" alt="">
-                        <p class="mlkpro">Yougart</p>
+                        <img src="{{ product.image_url }}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">{{ product.name }}</p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
-        data-wow-duration="1s" data-wow-delay="0.6s"
-        style="animation-duration: 1s; animation-delay: 0.6s; 
-            animation-name: none;">
-            <div class="goodnesssec buttermilk buttermilk">
-                <a href="#">
-                <div class="goodnessseccount text-center">
-                    <img src="{% static 'app/images/product/cow-milk.png' %}" class="img-responsive center-block"  alt="">
-                    <p class="mlkpro">Milk</p>
-                </div>    
-                </a>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
-        data-wow-duration="1s" data-wow-delay="0.6s"
-        style="animation-duration: 1s; animation-delay: 0.6s; 
-        animation-name: none;">
-            <div class="goodnesssec buttermilk curdbgpro">
-            <a href="#">
-                <div class="goodnessseccount text-center">
-                    <img src="{% static 'app/images/product/processedcheeseslice.png' %}" class="img-responsive center-block " alt="">
-                    <p class="mlkpro">Cheese</p>
-                </div>    
-            </a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <br/><br/>
 {% endblock main-content %}
+
     
     
