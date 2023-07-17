@@ -23,7 +23,7 @@ def home(request):
 def product_details_view(request, barcode):
     product_data = get_product_details(barcode)
     # Process and validate product_data as needed
-    if product_data:
+    if product_data and isinstance(product_data, dict) and product_data:
         # Render a template or create a response
         context = {
             'product_data': product_data,
