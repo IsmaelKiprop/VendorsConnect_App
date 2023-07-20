@@ -1,29 +1,30 @@
 from django.db import models
 
-class Product(models.Model):
-    product_name = models.CharField(max_length=200, default='')
-    generic_name = models.TextField(blank=True, null=True)
-    categories = models.TextField(blank=True, null=True)
-    brands = models.CharField(max_length=100, blank=True, null=True)
-    countries = models.TextField(blank=True, null=True)
-    ingredients_text = models.TextField(blank=True, null=True)
-    serving_size = models.CharField(max_length=50, blank=True, null=True)
-    nutrition_grades = models.CharField(max_length=1, blank=True, null=True)
-    image_url = models.URLField(blank=True, null=True)
 
-    energy_kcal = models.FloatField(blank=True, null=True)
-    fat_100g = models.FloatField(blank=True, null=True)
-    saturated_fat_100g = models.FloatField(blank=True, null=True)
-    carbohydrates_100g = models.FloatField(blank=True, null=True)
-    sugars_100g = models.FloatField(blank=True, null=True)
-    fiber_100g = models.FloatField(blank=True, null=True)
-    proteins_100g = models.FloatField(blank=True, null=True)
-    salt_100g = models.FloatField(blank=True, null=True)
 
-    additives_tags = models.TextField(blank=True, null=True)
-    allergens_tags = models.TextField(blank=True, null=True)
-    packaging = models.TextField(blank=True, null=True)
-    labels_tags = models.TextField(blank=True, null=True)
 
-    def __str__(self):
-        return self.product_name
+
+
+class Vendor(models.Model):
+    username = models.CharField(max_length=100, unique=True,default="")
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128,null=True)  # Use a more secure field like PasswordField in production
+    address = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=20)
+    # Add other fields specific to vendors
+
+    def _str_(self):
+        return self.username
+
+
+class Distributor(models.Model):
+    username = models.CharField(max_length=100, unique=True,default="")
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128,null=True)  # Use a more secure field like PasswordField in production
+    address = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=20)
+    # Add other fields specific to distributors
+
+    def _str_(self):
+        return self.username
+

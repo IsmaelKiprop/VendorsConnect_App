@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .openfoodfacts import get_product_details
 from .openfoodfacts import fetch_dairy_products
+from .forms import VendorRegistrationForm, DistributorRegistrationForm
 
 # Create your views here.
 def home(request):
@@ -33,4 +34,26 @@ def product_details_view(request, barcode):
         # Return an appropriate response when product data is not found
         return render(request, 'app/product_not_found.html')
 
+
+
+
+
+def registration_page(request):
+    vendor_form = VendorRegistrationForm(prefix='vendor')
+    distributor_form = DistributorRegistrationForm(prefix='distributor')
+
+    if request.method == 'POST':
+        vendor_form = VendorRegistrationForm(request.POST, prefix='vendor')
+        distributor_form = DistributorRegistrationForm(request.POST, prefix='distributor')
+        if vendor_form.is_valid() and distributor_form.is_valid():
+            # Save the forms if both are valid
+            vendor_form.save()
+            distributor_form.save()
+            # Redirect to a success page or another view
+            # return redirect('success_url')
+
+    return render(request, 'app/registration_page.html', {
+        'vendor_form': vendor_form,
+        'distributor_form': distributor_form,
+    })
 

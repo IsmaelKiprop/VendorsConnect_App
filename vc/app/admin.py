@@ -1,10 +1,17 @@
+# admin.py
 from django.contrib import admin
-from .models import Product
+from .models import Vendor, Distributor
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['product_name', 'categories', 'brands', 'nutrition_grades']
-    list_filter = ['categories', 'brands', 'nutrition_grades']
-    search_fields = ['product_name', 'generic_name', 'ingredients_text']
 
-# Register the Product model with the custom admin configuration
-admin.site.register(Product, ProductAdmin)
+class VendorAdmin(admin.ModelAdmin):
+    list_display = ('username','email',  'password', 'address', 'phone_number')  # Customize the fields displayed in the admin list view
+    search_fields = ('username', 'email', 'phone_number')  # Enable search by name, email, and phone number
+
+admin.site.register(Vendor, VendorAdmin)
+
+class DistributorAdmin(admin.ModelAdmin):
+    list_display = ('username','email',  'password', 'address', 'phone_number')  # Customize the fields displayed in the admin list view
+    search_fields = ('username', 'email', 'phone_number')  # Enable search by name, email, and phone number
+
+admin.site.register(Distributor, DistributorAdmin)
+
