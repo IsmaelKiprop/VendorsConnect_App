@@ -1,0 +1,60 @@
+{% block title %}Distributor Registration{% endblock %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #00cc44; /* Set the background color to green */
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff; /* Set the form background color to white */
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    button[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% block content %}
+<h1>Distributor Registration Form</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register as Distributor</button>
+</form>
+{% endblock %}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <style>
+        /* Add your custom CSS styling here */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #009900;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #009900;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #007700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Successful</h1>
+        <p>Thank you for registering as a vendor/distributor!</p>
+        <p>Your registration has been successfully processed.</p>
+        <p>You can now start using your account to access our platform.</p>
+        <a href="{% url 'app:home' %}" class="btn">Go to Home Page</a>
+    </div>
+
+    <script>
+        // Add any JavaScript for additional effects or functionality here
+        // For example, you can use JavaScript to display a toast notification or animate the elements.
+    </script>
+</body>
+</html>
