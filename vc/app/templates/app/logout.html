@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <!-- Add your CSS and JavaScript links here if needed -->
+</head>
+<body>
+    <header>
+        <!-- Include your navigation bar or menu here -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'app:home' %}">Home</a></li>
+                <li><a href="{% url 'app:profile' %}">Profile</a></li>
+                <li><a href="{% url 'app:orders' %}">Orders</a></li>
+                <li><a href="{% url 'app:search' %}">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Logout</h1>
+        <p>You have been successfully logged out.</p>
+        <p><a href="{% url 'app:home' %}">Return to Home</a></p>
+    </main>
+
+    <footer>
+        <!-- Include your footer content here -->
+    </footer>
+</body>
+</html>

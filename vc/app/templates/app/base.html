@@ -54,37 +54,31 @@
                 <a class="nav-link text-white" href="#">Contact</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" action="{% url 'app:search' %}" method="get">
+              <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-          </div>
           
+          </div>
+
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown mx-2">
-                <a class="nav-link dropdown-toggle text-white" href="#"
-                id="profileDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">Ismael</a>
-                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Orders</a></li>
-                    <li><a class="dropdown-item" href="#">Change Password</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-            </li>
-            <!-- User Profile and Other Links -->
-            <li class="nav-item mx-2">
-              <a href="#" class="nav-link text-white">Cart 4</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a href="#" class="nav-link text-white">Wishlist 4</a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link text-white" href="{% url 'app:login' %}">Login</a>
-            </li>
-          </ul>
-
-        </div>
+              <a class="nav-link dropdown-toggle text-white" href="#"
+              id="profileDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">Ismael</a>
+              <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                  {% if user.is_authenticated %}
+                      <li><a class="dropdown-item" href="{% url 'app:profile' %}">Profile</a></li>
+                      <li><a class="dropdown-item" href="#">Orders</a></li>
+                      <li><a class="dropdown-item" href="#">Change Password</a></li>
+                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                  {% else %}
+                      <li><a class="dropdown-item" href="{% url 'app:register' %}">Register</a></li>
+                      <li><a class="dropdown-item" href="{% url 'app:login' %}">Login</a></li>
+                  {% endif %}
+              </ul>
+          </li>
+</div>
     </nav>
 
     {% block banner-slider %}{% endblock banner-slider %}

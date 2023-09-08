@@ -1,23 +1,35 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import UserProfile
-from .models import Vendor, Distributor
-
-class VendorRegistrationForm(forms.ModelForm):
-    class Meta:
-        model = Vendor
-        fields = ['username', 'email', 'password', 'address', 'phone_number'] # Add fields specific to Vendor registration
-
-class DistributorRegistrationForm(forms.ModelForm):
-    class Meta:
-        model = Distributor
-        fields = ['username', 'email', 'password', 'address', 'phone_number'] # Add fields specific to Distributor registration
-        
-
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['address', 'phone_number', 'profile_picture', 'bio']
-        # Add any other fields from the UserProfile model that you want to include in the form
 
-    # You can add additional form validation or customize the form fields here if needed
+class DistributorRegistrationForm(UserCreationForm):
+    company_name = forms.CharField(max_length=100)
+    phone_number = forms.CharField(max_length=20)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2', 'company_name', 'phone_number']
+
+class VendorRegistrationForm(UserCreationForm):
+    company_name = forms.CharField(max_length=100)
+    phone_number = forms.CharField(max_length=20)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2', 'company_name', 'phone_number']
+
+class CustomProfileForm(forms.ModelForm):
+    address = forms.CharField(max_length=200, required=True)  # Updated to required=True
+    phone_number = forms.CharField(max_length=20, required=True)  # Updated to required=True
+    profile_picture = forms.ImageField(required=False)
+    bio = forms.CharField(widget=forms.Textarea, required=False)
+
+    class Meta:
+        model = UserProfile
+        fields = ['address', 'phone_number', 'profile_picture', 'bio']

@@ -1,12 +1,46 @@
-{% extends 'app/base.html' %}
 
-{% block title %}User Profile{% endblock %}
+{% load static %}
 
 {% block content %}
-<h1>User Profile</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Profile</button>
-</form>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <!-- Display Profile Picture -->
+            <div class="profile-picture">
+                {% if user.profile.profile_picture %}
+                <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle">
+                {% else %}
+                <img src="{% static 'app/images/default_profile_picture.jpg' %}" alt="Default Profile Picture" class="img-fluid rounded-circle">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            <!-- Display User Information -->
+            <h2>{{ user.username }}</h2>
+            <p>Email: {{ user.email }}</p>
+            <p>Address: {{ user.profile.address }}</p>
+            <p>Phone Number: {{ user.profile.phone_number }}</p>
+            <p>Bio: {{ user.profile.bio }}</p>
+        </div>
+    </div>
+
+    <!-- Form to Update Profile Information -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data" class="profile-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <!-- Input field for profile picture -->
+                <div class="mb-3">
+                    <label for="{{ form.profile_picture.id_for_label }}">Profile Picture</label>
+                    {{ form.profile_picture }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
+

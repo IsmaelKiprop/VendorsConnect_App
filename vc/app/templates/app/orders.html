@@ -1,0 +1,30 @@
+
+{% block content %}
+  <div class="container">
+    <h2>Your Orders</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Order Number</th>
+          <th>Order Date</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+          <tr>
+            <td>{{ order.order_number }}</td>
+            <td>{{ order.order_date }}</td>
+            <td>${{ order.total_amount }}</td>
+            <td>{{ order.status }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="4">You haven't placed any orders yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

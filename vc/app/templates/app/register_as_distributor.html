@@ -1,0 +1,27 @@
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>Register as Distributor</h1>
+<form method="post">
+    {% csrf_token %}
+    <!-- Vendor-specific registration fields -->
+    <label for="company_name">Company Name:</label>
+    <input type="text" id="company_name" name="company_name" required>
+
+    <label for="business_type">Business Type:</label>
+    <input type="text" id="business_type" name="business_type" required>
+
+    <label for="contact_number">Contact Number:</label>
+    <input type="text" id="contact_number" name="contact_number" required>
+
+    <!-- Common registration fields (e.g., username, email, password) -->
+    {{ form.username.label_tag }} {{ form.username }}
+    {{ form.email.label_tag }} {{ form.email }}
+    {{ form.password1.label_tag }} {{ form.password1 }}
+    {{ form.password2.label_tag }} {{ form.password2 }}
+    
+    <button type="submit">Register as Vendor</button>
+</form>
+<p>Already have an account? <a href="{% url 'app:login' %}">Log in</a></p>
+{% endblock %}
+

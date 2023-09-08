@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!-- Add your CSS and JavaScript links here if needed -->
+</head>
+<body>
+    <header>
+        <!-- Include your navigation bar or menu here -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'app:home' %}">Home</a></li>
+                <li><a href="{% url 'app:profile' %}">Profile</a></li>
+                <li><a href="{% url 'app:orders' %}">Orders</a></li>
+                <li><a href="{% url 'app:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Search Results</h1>
+        <p>Display your search results here:</p>
+
+        <!-- Loop through and display search results -->
+        <ul>
+            {% for result in search_results %}
+                <li>{{ result }}</li>
+            {% empty %}
+                <li>No results found.</li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <!-- Include your footer content here -->
+    </footer>
+</body>
+</html>
